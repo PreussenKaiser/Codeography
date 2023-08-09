@@ -2,12 +2,12 @@
 using Codeography.Example.Sounds;
 using Codeography.Extensions;
 
-var builder = SoundApplication
+await SoundApplication
         .CreateDefaultBuilder()
         .ConfigureServices(services => services
             .AddSoundLayer<LoggingSound>()
-            .AddSoundLayer<BeepSound>());
-
-var app = builder.Build();
-
-await app.RunAsync();
+            .AddSoundLayer<HighBeepSound>()
+            .AddSoundLayer<LowBeepSound>()
+            .AddSoundLayer<LongBeepSound>())
+        .Build()
+        .RunAsync();
